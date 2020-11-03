@@ -7,6 +7,35 @@
 
 using namespace std;
 
+static int s_speed = 1;
+static int s_level = 5;
+
+
+class Donde{
+    private:
+        string m_name;
+        int m_score;
+    public:
+        Donde() 
+        :m_name("Unknown"),
+         m_score(0){
+        }
+        Donde(const string& name){
+            m_name = name;
+        }
+        const string& GetName() const {return m_name;}
+};
+
+struct Entity3{
+    static int x,y;
+
+    void Print3()
+    {
+        cout << x << " " << y << endl;
+    }
+
+};
+
 class Entity{
     public:
         int x, y1;
@@ -101,10 +130,18 @@ void increment(int& value)
     value++;
 }
 
-
+int Entity3::x;
+int Entity3::y;
 
 int main()
 {
+
+    Entity3 e3;
+    e3.x = 9;
+    e3.y = 10;
+
+    e3.Print3();
+    
     char* buffer = new char[8];
     memset(buffer,0,8);
 
@@ -116,6 +153,15 @@ int main()
     int a = 5;
     int b = 8;
 
+    s_speed = s_level > 5 ? 10 : 1;
+
+    string rank = s_level > 10 ? "Master" : "Beginner";
+
+    Donde d;
+    cout << d.GetName() << endl;
+
+    Donde d1("Shrinish");
+    cout << d1.GetName() << endl;
 
     int& ref = a;
     
