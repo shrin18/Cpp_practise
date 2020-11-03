@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <set>
 #include <map>
+#include <cstring>
 
 using namespace std;
 
@@ -95,10 +96,35 @@ void setDemo()
     
 }
 
+void increment(int& value)
+{
+    value++;
+}
+
+
+
 int main()
 {
+    char* buffer = new char[8];
+    memset(buffer,0,8);
 
+    char** ptr = &buffer;
+
+    cout << buffer << endl;
+    cout << ptr << endl;
+
+    int a = 5;
+    int b = 8;
+
+
+    int& ref = a;
     
+    increment(a);
+
+    cout << a << endl;
+    cout << b << endl;
+
+
     setDemo();
     mapdemo();
     vector<int> A = {1,2,31,41,5,1};
